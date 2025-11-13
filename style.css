@@ -1,165 +1,226 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+/* --- General Styles --- */
 :root {
-    --primary-color: #4a90e2; /* Azul vibrante */
-    --secondary-color: #50e3c2; /* Verde água */
-    --dark-color: #333;
-    --light-color: #f4f4f4;
-    --text-color: #555;
-    --container-width: 960px;
-    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --primary-color: #4f46e5;
+    --primary-hover-color: #4338ca;
+    --dark-bg: #111827;
+    --light-bg: #1f2937;
+    --text-color: #d1d5db;
+    --heading-color: #ffffff;
+    --card-bg: #374151;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    background-color: var(--light-color);
+    background-color: var(--dark-bg);
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 .container {
-    max-width: var(--container-width);
-    margin: auto;
-    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header */
-.header {
-    background: #fff;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
-    box-shadow: var(--box-shadow);
+h1, h2, h3 {
+    color: var(--heading-color);
+    font-weight: 700;
 }
 
-.header .logo {
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+p { margin-bottom: 1rem; }
+
+/* --- Header --- */
+header {
+    background: var(--light-bg);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--card-bg);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 0 40px;
+    background: var(--dark-bg);
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero .subtitle {
+    max-width: 700px;
+    margin: 20px auto 30px;
+    font-size: 1.1rem;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+.download-btn svg {
+    fill: white;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-3px);
+}
+
+.download-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.hero .thumbnail {
+    margin-top: 50px;
+}
+
+.hero .thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Features Section --- */
+.features {
+    background: var(--light-bg);
+    padding: 60px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #4b5563;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.feature-card h3 svg {
+    margin-right: 10px;
+}
+
+/* --- About & FAQ Sections --- */
+.about, .faq {
+    padding: 60px 0;
+}
+
+.about h2, .faq h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
-.header .logo img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
+.faq-item {
+    background: var(--light-bg);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--card-bg);
 }
 
-.header h1 {
-    color: var(--dark-color);
-    font-size: 1.8rem;
-}
-
-/* Seção de Download */
-.download-section {
-    padding: 4rem 0;
-    text-align: center;
-    background: #fff;
-}
-
-.download-section h2 {
-    font-size: 2.5rem;
-    color: var(--dark-color);
-    margin-bottom: 1rem;
-}
-
-.download-section .subtitle {
+.faq-item h3 {
     font-size: 1.2rem;
-    color: #777;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
 }
 
-.thumbnail {
-    max-width: 100%;
-    height: auto;
-    width: 350px;
-    border-radius: 15px;
-    margin-bottom: 2.5rem;
-    box-shadow: var(--box-shadow);
-}
-
-.download-button {
-    display: inline-block;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: #fff;
-    padding: 20px 60px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-transform: uppercase;
-    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
-}
-
-.download-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(74, 144, 226, 0.4);
-}
-
-/* Seção de Conteúdo */
-.content-section {
-    padding: 3rem 0;
-}
-
-.content-section h2 {
-    font-size: 2rem;
-    color: var(--dark-color);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--primary-color);
-    display: inline-block;
-}
-
-.content-section h3 {
-    font-size: 1.5rem;
-    color: var(--dark-color);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.content-section p {
-    margin-bottom: 1rem;
-}
-
-.content-section ul, .content-section ol {
-    list-style-position: inside;
-    margin-left: 20px;
-    margin-bottom: 1rem;
-}
-
-.content-section ul li, .content-section ol li {
-    margin-bottom: 0.7rem;
-}
-
-/* Footer */
-.footer {
-    background: var(--dark-color);
-    color: #fff;
+/* --- Footer --- */
+footer {
+    background-color: #000;
+    color: #a0a0a0;
     text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    padding: 30px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
 
-/* Responsividade */
-@media(max-width: 768px) {
-    .header h1 {
-        font-size: 1.5rem;
-    }
-    .download-section h2 {
-        font-size: 2rem;
-    }
-    .download-button {
-        padding: 15px 40px;
-        font-size: 1.2rem;
-    }
-    .content-section h2 {
-        font-size: 1.8rem;
+footer .disclaimer {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .hero h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .hero {
+        padding: 60px 0 30px;
     }
 }
